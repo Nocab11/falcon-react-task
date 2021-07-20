@@ -107,6 +107,7 @@ import Typography from '../components/utilities/Typography';
 import VerticalAlign from '../components/utilities/VerticalAlign';
 import Visibility from '../components/utilities/Visibility';
 import Widgets from '../components/widgets/Widgets';
+import Users from "../components/users/Users";
 
 const InboxRoutes = ({ match: { url } }) => (
   <InboxProvider>
@@ -159,6 +160,9 @@ const DashboardRoutes = () => (
     <Route path="/pages/profile" exact component={Profile} />
     <Route path="/pages/settings" exact component={Settings} />
     <Route path="/pages/starter" exact component={Starter} />
+
+    <Route path="/users" exact component={Users} />
+
     {/*chat*/}
     <Route path="/chat" exact component={Chat} />
     {/*calendar*/}

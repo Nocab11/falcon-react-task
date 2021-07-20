@@ -315,9 +315,17 @@ export const utilityRoutes = {
   ]
 };
 
+export const usersRoutes = {
+    name: 'Users',
+    to: '/users',
+    exact: true,
+    icon: 'book'
+};
+
 export default [
   homeRoutes,
   pageRoutes,
+  usersRoutes,
   chatRoutes,
   kanbanRoutes,
   calenderRoutes,
@@ -329,5 +337,5 @@ export default [
   utilityRoutes,
   pluginRoutes,
   documentationRoutes,
-  changelogRoutes
+  changelogRoutes,
 ];
