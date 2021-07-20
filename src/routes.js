@@ -319,6 +319,13 @@ export const usersRoutes = {
     name: 'Users',
     to: '/users',
     exact: true,
+    icon: 'user'
+};
+
+export const ordersMainRoutes = {
+    name: 'Orders',
+    to: '/orders',
+    exact: true,
     icon: 'book'
 };
 
@@ -326,6 +333,7 @@ export default [
   homeRoutes,
   pageRoutes,
   usersRoutes,
+  ordersMainRoutes,
   chatRoutes,
   kanbanRoutes,
   calenderRoutes,

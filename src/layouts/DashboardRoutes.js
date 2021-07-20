@@ -108,6 +108,7 @@ import VerticalAlign from '../components/utilities/VerticalAlign';
 import Visibility from '../components/utilities/Visibility';
 import Widgets from '../components/widgets/Widgets';
 import Users from "../components/users/Users";
+import OrdersMain from "../components/orders/OrdersMain";
 
 const InboxRoutes = ({ match: { url } }) => (
   <InboxProvider>
@@ -161,7 +162,11 @@ const DashboardRoutes = () => (
     <Route path="/pages/settings" exact component={Settings} />
     <Route path="/pages/starter" exact component={Starter} />
 
+      {/*users*/}
     <Route path="/users" exact component={Users} />
+
+      {/*orders*/}
+    <Route path="/orders" exact component={OrdersMain} />
 
     {/*chat*/}
     <Route path="/chat" exact component={Chat} />
