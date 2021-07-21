@@ -1,0 +1,74 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "img": "https://b.radikal.ru/b41/2107/b9/92e278c8d596.png",
+      "name": "Иван Иванов",
+      "description": "Краткое описание Ивана Иванова",
+      "logs": [
+        "item 1",
+        "item 2"
+      ],
+      "ordersList": [
+        "order 1",
+        "order 2",
+        "order 3"
+      ]
+    },
+    {
+      "id": 2,
+      "img": "https://b.radikal.ru/b09/2107/e6/e9e16ae4ff68.png",
+      "name": "Василий Алексеев",
+      "description": "Краткое описание Василия Алексеева",
+      "logs": [
+        "radndom"
+      ],
+      "ordersList": [
+        "order 1",
+        "order 2",
+        "order 3",
+        "order 4"
+      ]
+    },
+    {
+      "id": 3,
+      "img": "https://a.radikal.ru/a18/2107/cf/e3bf2ef56ef8.png",
+      "name": "Олег Михайлов",
+      "description": "Краткое описание Олега Михайлова",
+      "logs": [
+        "radndom 1",
+        "radndom2",
+        "radndom23"
+      ],
+      "ordersList": [
+        "order 1",
+        "order 2"
+      ]
+    },
+    {
+      "id": 4,
+      "img": "https://c.radikal.ru/c37/2107/15/06b32cc266f7.png",
+      "name": "Коля Андреев",
+      "description": "Краткое описание Коли Андреева",
+      "logs": [
+        "item 1",
+        "logs2",
+        "logs4"
+      ],
+      "ordersList": [
+        "order 1",
+        "order 3"
+      ]
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

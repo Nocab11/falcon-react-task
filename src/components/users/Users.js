@@ -1,63 +1,87 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import axios from "axios";
 import { Card, Button, CardTitle, CardText, Row, Col, CardBody, CardImg, CardLink } from 'reactstrap';
 import {  Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 
-const Users = () => (
-   <>
-       <Card body className="mb-3">
-           <Row>
-               <Col sm="12">
-                   <div className="d-md-flex">
-                       <CardImg top src="https://d.radikal.ru/d13/2107/a9/e5cf211d3cca.png" alt="Card image cap" style={{ width: 'auto' }} />
-                       <CardBody>
-                           <CardTitle tag="h5">Ivan Ivanov</CardTitle>
-                           <CardText>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum laborum nisi officiis perferendis quisquam, sunt tempora voluptas? Amet, eaque eligendi eos et labore, nemo pariatur reiciendis reprehenderit sed sequi tenetur!</CardText>
-                           <CardText>
-                               <small className="text-muted">Last updated 3 mins ago</small>
-                           </CardText>
-                       </CardBody>
-                   </div>
-               </Col>
-           </Row>
-           <Row className="mt-3">
-               <Col md="4">
-                   <Card body className="mt-3">
-                       <CardTitle tag="h5">Логи</CardTitle>
-                       <ul>
-                           <li><CardLink>It u classes </CardLink></li>
-                           <li><CardLink>It uses utility classes </CardLink></li>
-                           <li><CardLink>It uses utility classe</CardLink></li>
-                       </ul>
+const Users = () => {
 
-                   </Card>
-               </Col>
-               <Col md="4">
-                   <Card body className="mt-3">
-                       <CardTitle tag="h5">Список заказов</CardTitle>
-                       <ul>
-                           <li>Lorem ipsum dolor sit amet</li>
-                           <li>Consectetur adipiscing elit</li>
-                           <li>Integer molestie lorem at massa</li>
-                       </ul>
+    const [users, setUsers] = useState([]);
 
-                   </Card>
-               </Col>
-               <Col md="4">
-                   <Card body className="mt-3">
-                       <CardTitle tag="h5">Текущий пароль</CardTitle>
-                       <Form>
-                           <FormGroup>
-                               <Label for="examplePassword">Пароль</Label>
-                               <Input type="password" name="password" id="examplePassword" placeholder="Введите пароль" />
-                           </FormGroup>
-                           <Button>Обновить</Button>
-                       </Form>
-                   </Card>
-               </Col>
-           </Row>
-       </Card>
-   </>
-);
+    useEffect(() => {
+        const fetchData = async () => {
+            const result = await axios.get(
+              "http://localhost:3001/users"
+            );
+            setUsers(result.data)
+        }
+        fetchData()
+    }, [])
+    console.log(users)
+
+    return (
+        <>
+            <h2 className="mb-3">Страница с пользователями</h2>
+            {users.map((user, i) => (
+                <div key={i}>
+                    <Card body className="mb-3">
+                        <Row>
+                            <Col sm="12">
+                                <div className="d-md-flex">
+                                    <CardImg top src={user.img} alt="Card image cap" style={{ width: 'auto' }} />
+                                    <CardBody>
+                                        <CardTitle tag="h5">{user.name}</CardTitle>
+                                        <CardText>{user.description}</CardText>
+                                    </CardBody>
+                                </div>
+                            </Col>
+                        </Row>
+                        <Row className="mt-3 mb-3">
+                            <Col md="4">
+                                <Card body className="mt-3 h-100">
+                                    <CardTitle tag="h5">Логи</CardTitle>
+                                    <ul>
+                                        {user.logs.map((log, j) => (
+                                            <li key={j}>
+                                                <CardLink key={j}>
+                                                    {log}
+                                                </CardLink>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </Card>
+                            </Col>
+                            <Col md="4">
+                                <Card body className="mt-3 h-100">
+                                    <CardTitle tag="h5">Список заказов</CardTitle>
+                                    <ul>
+                                        {user.ordersList.map((order, j) => (
+                                            <li key={j}>
+                                            {order}
+                                            </li>
+                                        ))}
+
+                                    </ul>
+                                </Card>
+                            </Col>
+                            <Col md="4">
+                                <Card body className="mt-3 h-100">
+                                    <CardTitle tag="h5">Текущий пароль</CardTitle>
+                                    <Form>
+                                        <FormGroup>
+                                            <Label for="examplePassword">Пароль</Label>
+                                            <Input type="password" name="password" id="examplePassword" placeholder="Введите пароль" />
+                                        </FormGroup>
+                                        <Button>Обновить</Button>
+                                    </Form>
+                                </Card>
+                            </Col>
+                        </Row>
+                    </Card>
+                </div>
+            ))}
+        </>
+    )
+}
 
 export default Users;
